@@ -9,7 +9,6 @@ import icons from '../assets/icons'
 import images from '../assets/images'
 import { useNavigate } from 'react-router-dom'
 import { voucherData } from '@renderer/contants/VOUCHER_DATA'
-import { toast } from 'react-toastify'
 
 function BeginButton(): JSX.Element {
   const [qrData, setQrData] = useState<string>('')
@@ -17,7 +16,7 @@ function BeginButton(): JSX.Element {
   const [voucherValue, setVoucherValue] = useState<string>('')
   const [price, setPrice] = useState<number>(35000)
   const [isVoucherValid, setIsVoucherValid] = useState<boolean>(true)
-  const [referenceId, setReferenceId] = useState<string>('')
+  const referenceIdRef = useRef<string>('')
 
   const nav = useNavigate()
 
@@ -74,7 +73,7 @@ function BeginButton(): JSX.Element {
         amount: price,
         expires_at: generateExpiryTimestamp()
       }
-      setReferenceId(ref_id)
+      referenceIdRef.current = ref_id
       // console.log({ body })
       const response = await CustomFetch(`/qr_codes`, 'POST', body, true)
 
@@ -115,19 +114,19 @@ function BeginButton(): JSX.Element {
     })
   }
 
-  const checkPaymentStatus = async (): Promise<void> => {
-    const response = await CustomFetch(`/payment-status?reference_id=${referenceId}`)
-    const result = await response.json()
-    // console.log(result.status)
+  // const checkPaymentStatus = async (): Promise<void> => {
+  //   const response = await CustomFetch(`/payment-status?reference_id=${referenceId}`)
+  //   const result = await response.json()
+  //   // console.log(result.status)
 
-    if (result.status === 'SUCCEEDED') {
-      nav('/pre-photo')
-    } else {
-      toast.error('Pembayaran anda belum diterima, tunggu beberapa saat lagi', {
-        className: 'custom-toast-error'
-      })
-    }
-  }
+  //   if (result.status === 'SUCCEEDED') {
+  //     nav('/pre-photo')
+  //   } else {
+  //     toast.error('Pembayaran anda belum diterima, tunggu beberapa saat lagi', {
+  //       className: 'custom-toast-error'
+  //     })
+  //   }
+  // }
 
   useEffect(() => {
     getQrCode()
