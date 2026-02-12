@@ -1,0 +1,123 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+#root {
+  font-family: 'Poppins', sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: transparent;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  height: 100%;
+  margin: 0;
+  padding: 0;
+
+  /* Professional Monochrome Theme */
+  --snapspot-bg: #f9f9fa; /* Very light gray/white for depth */
+  --snapspot-text: #1d1d1f; /* Near black for text */
+  --snapspot-button-bg: #000000; /* Solid black buttons */
+  --snapspot-button-text: #ffffff;
+  --snapspot-input-bg: #ffffff;
+  --snapspot-border: #e6e6e6;
+  --snapspot-shadow-card: 0px 4px 12px rgba(0, 0, 0, 0.05); /* Soft card shadow */
+  --snapspot-shadow-3d: 0px 5px 0px 0px #333333; /* Sharp 3D shadow for buttons */
+  
+  --snapspot-orange: #000000; /* Mapping old vars to black */
+  --snapspot-blue: #333333; /* Mapping old vars to dark gray */
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100%;
+  font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  /* padding: 0.6em 1.2em; */
+  font-size: 1em;
+  font-weight: 500;
+  /* font-family: inherit; */
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+*/ button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+.clickable {
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.clickable:hover {
+  opacity: 0.7;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: transparent;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+.Toastify__toast-container {
+  top: 100px;
+  font-size: large;
+}
+
+.custom-toast-success {
+  background-color: #21e151 !important; /* hijau */
+  color: white !important;
+  width: 800px;
+  text-align: center;
+  padding: 24px;
+  font-family: 'Poppins';
+}
+
+.custom-toast-error {
+  background-color: #dc3545 !important; /* merah */
+  color: white !important;
+  width: 800px;
+  text-align: center;
+  padding: 24px;
+  font-family: 'Poppins';
+}
